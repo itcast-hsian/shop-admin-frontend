@@ -18,6 +18,7 @@
                 </el-header>
                 <!-- 主体 -->
                 <el-main>
+                    <breadcrumb></breadcrumb>
                     <router-view></router-view>
                 </el-main>
             </el-container>
@@ -30,6 +31,7 @@
 // 引入组件
 import Aside from "../components/Aside";
 import Header from "../components/Header";
+import Breadcrumb from "../components/Breadcrumb";
 
 export default {
     name: "admin-index",
@@ -42,7 +44,8 @@ export default {
     // 注册组件，注意组件名称不要和html的标签名重复
     components: {
         "app-aside": Aside,
-        "app-header": Header
+        "app-header": Header,
+        "breadcrumb": Breadcrumb
     },
 
     methods: {
@@ -75,11 +78,9 @@ export default {
 
   }
   
+    /* 去除默认的样式 */
   .el-main {
     background-color: #E9EEF3;
-    color: #333;
-    text-align: center;
-    line-height: 160px;
   }
   
   .el-container {
