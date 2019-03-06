@@ -48,8 +48,12 @@ const routes = [
 // 创建路由对象
 const router = new VueRouter({routes});
 
+// 给axios给次请求自动加上域名
+axios.defaults.baseURL = 'http://localhost:8899';
+
 // 给vue构造函数的原型链添加$axios
 Vue.prototype.$axios = axios;
+
 
 new Vue({
   // 挂载到根实例
