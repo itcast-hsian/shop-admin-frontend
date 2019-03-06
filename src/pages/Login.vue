@@ -32,7 +32,9 @@
           this.$axios({
             url: "/admin/account/login",
             method: "POST",
-            data: this.formData
+            data: this.formData,
+            // 处理跨域
+            withCredentials: true,
           }).then(res => {
             const {status, message} = res.data;
 
