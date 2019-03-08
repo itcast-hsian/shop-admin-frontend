@@ -112,8 +112,11 @@ export default {
         });
     },
       
+      // 编辑
     handleEdit(index, row) {
       console.log(index, row);
+      // row.id就是当前编辑商品的id
+      this.$router.push(`/admin/goods-edit/${row.id}`);
     },
 
     // 切换显示条数时候触发
