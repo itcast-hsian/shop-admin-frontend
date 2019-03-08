@@ -180,6 +180,15 @@ export default {
 
         // 预览图片
         this.imageUrl = message.imgList[0].url;
+
+        this.form.fileList = message.fileList.map(v => {
+          return {
+            ...v,
+            // 覆盖 v 对象里面的url
+            url: `http://localhost:8899` + v.shorturl
+          }
+        })
+
       })
 
       // 请求分类的数据
@@ -242,9 +251,19 @@ export default {
       }
       return isLt2M;
     },
-    // 移除选中的图片
+    // 移除选中的图片,fileList是删除后的数据
     handleRemove(file, fileList) {
-      console.log(file, fileList);
+
+      if(fileList.length === 0){
+        this.$message({
+          type: "warning",
+          message: "至少保留一张图片"
+        });
+        return;
+      }
+
+      // 在编辑时候如果只有一张图片后台没法删除,至少保留一张图片
+      this.form.fileList = fileList
     },
     // 点击预览图片
     handlePictureCardPreview(file) {

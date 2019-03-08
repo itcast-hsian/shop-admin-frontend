@@ -19,7 +19,7 @@ import GoodsList from "./pages/goods/GoodsList";
 import GoodsAdd from  "./pages/goods/GoodsAdd";
 import GoodsEdit from  "./pages/goods/GoodsEdit";
 import CategoryList from "./pages/category/CategoryList";
-
+import CategoryAdd from "./pages/category/CategoryAdd";
 
 // 注册插件
 Vue.use(VueRouter)
@@ -42,7 +42,8 @@ const routes = [
         {path: "goods-list", component: GoodsList, meta: "商品列表"},
         {path: "goods-add", component: GoodsAdd, meta: "添加商品"},
         {path: "goods-edit/:id", component: GoodsEdit, meta: "编辑商品"},
-        {path: "category-list", component: CategoryList, meta: "栏目列表"}
+        {path: "category-list", component: CategoryList, meta: "栏目列表"},
+        {path: "category-add", component: CategoryAdd, meta: "新增栏目"}
     ] 
   }
 ]
