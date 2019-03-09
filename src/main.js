@@ -20,6 +20,10 @@ import GoodsAdd from  "./pages/goods/GoodsAdd";
 import GoodsEdit from  "./pages/goods/GoodsEdit";
 import CategoryList from "./pages/category/CategoryList";
 import CategoryAdd from "./pages/category/CategoryAdd";
+import CategoryEdit from "./pages/category/CategoryEdit";
+
+// 引入vuex的仓库
+import store from "./store";
 
 // 注册插件
 Vue.use(VueRouter)
@@ -43,7 +47,8 @@ const routes = [
         {path: "goods-add", component: GoodsAdd, meta: "添加商品"},
         {path: "goods-edit/:id", component: GoodsEdit, meta: "编辑商品"},
         {path: "category-list", component: CategoryList, meta: "栏目列表"},
-        {path: "category-add", component: CategoryAdd, meta: "新增栏目"}
+        {path: "category-add", component: CategoryAdd, meta: "新增栏目"},
+        {path: "category-edit/:id", component: CategoryEdit, meta: "编辑栏目"}
     ] 
   }
 ]
@@ -61,5 +66,7 @@ Vue.prototype.$axios = axios;
 new Vue({
   // 挂载到根实例
   router,
+  // 挂载store
+  store,
   render: h => h(App),
 }).$mount('#app')

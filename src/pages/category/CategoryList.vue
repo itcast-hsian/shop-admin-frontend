@@ -40,9 +40,7 @@
 export default {
   data() {
     return {
-      data: [
-         
-      ]
+      data: []
     };
   },
 
@@ -52,10 +50,10 @@ export default {
     }).then(res => {
       let { message } = res.data;
 
-    // 重新排序
+      // 重新排序
       message = message.sort((a, b) => {
-          // 如果a的category_id大于B的，那么b数据就排到a的前面
-          return a.category_id - b.category_id;
+        // 如果a的category_id大于B的，那么b数据就排到a的前面
+        return a.category_id - b.category_id;
       });
 
       // 最终的结果的数组
@@ -109,7 +107,8 @@ export default {
 
   methods: {
     edit(data) {
-      console.log();
+      // 跳转到编辑页
+      this.$router.push(`/admin/category-edit/${data.category_id}`);
     },
 
     // 修改排序回车时候触发的事件
@@ -133,8 +132,8 @@ export default {
     },
 
     // 跳转到新增栏目页
-    handleCategoryAdd(){
-        this.$router.push("/admin/category-add");
+    handleCategoryAdd() {
+      this.$router.push("/admin/category-add");
     }
   }
 };

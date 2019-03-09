@@ -29,23 +29,29 @@
     methods: {
       submitForm(formName) {
           // 提交到接口
-          this.$axios({
-            url: "/admin/account/login",
-            method: "POST",
-            data: this.formData,
-            // 处理跨域
-            withCredentials: true,
-          }).then(res => {
-            const {status, message} = res.data;
+          // this.$axios({
+          //   url: "/admin/account/login",
+          //   method: "POST",
+          //   data: this.formData,
+          //   // 处理跨域
+          //   withCredentials: true,
+          // }).then(res => {
+          //   const {status, message} = res.data;
 
-            // 如果登录错误
-            if(status == 1){
-              this.$message.error(message);
-            }else{
-              // 登录成功返回上一页
-              this.$router.back();
-            }
+          //   // 如果登录错误
+          //   if(status == 1){
+          //     this.$message.error(message);
+          //   }else{
+          //     // 登录成功返回上一页
+          //     this.$router.back();
+          //   }
+          // })
+
+          // user/是命名空间
+          this.$store.dispatch("user/login", this.formData).then(() => {
+            this.$router.back();
           })
+
       },
       resetForm(formName) {
 
